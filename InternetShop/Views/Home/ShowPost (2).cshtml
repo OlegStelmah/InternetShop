@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<!--[if IE 9 ]>    <html lang="ru" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="ru" class="no-js">
+<!--<![endif]--><!-- head
+    ============================================================================ --><head>
+
+
+        <!-- Basic Info
+        ======================================================================== -->
+        <title>Моя страница1</title>
+        <meta charset="utf-8">
+        <meta name="author" content="EvgenyLazukin.ru &amp; Art-Vrn.ru">
+        <meta name="robots" content="index, follow">
+        <meta name="googlebot" content="index, follow">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+
+        <!-- Mobile Configurations
+        ======================================================================== -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+        <!-- fav and icons for Mobile
+        ======================================================================== -->
+        <link rel="shortcut icon" href="images/icons/favicon.ico">
+        <link rel="apple-touch-icon" sizes="57x57" href="images/icons/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="images/icons/apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="images/icons/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="images/icons/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="images/icons/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="images/icons/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="images/icons/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="images/icons/apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon-180x180.png">
+
+        <!-- Google Fonts
+        ======================================================================== -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600|Roboto:100,100i,300,300i,400,400i,500,700&amp;subset=cyrillic" rel="stylesheet">
+
+        <!--  CSS Files
+        ======================================================================== -->
+        <link rel="stylesheet" href="js/vendor/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/social-icons.css">
+        <link rel="stylesheet" href="js/plugins/swiper/css/swiper.min.css">
+        <link rel="stylesheet" href="js/plugins/mediaelement/css/mediaelementplayer.min.css">
+        <link rel="stylesheet" href="js/plugins/fancybox/jquery.fancybox.min.css">
+        <link rel="stylesheet" href="js/plugins/wow/css/animate.min.css">
+
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/responsive.css">
+
+        <!--  Head JS Libs
+        ======================================================================== -->
+        <script src="js/vendor/modernizr-custom.js"></script>
+
+
+    </head><!-- /End head -->
+
+
+
+
+    <!-- body
+    ============================================================================ -->
+    <body class="nbs-10" data-spy="scroll" data-target=".header-menu-container" data-offset="61">
+
+
+
+
+        <!-- UP Button
+        ======================================================================== -->
+        <div id="up-button"><a href="#" title="To Top"><i class="fa fa-angle-up"></i></a></div>
+
+
+
+
+        <!-- Main Wrapper
+        ======================================================================== -->
+        <div id="main-wrapper">		
+        <!-- Header 1
+            ==================================================================== -->
+            <!-- /End Header 1 --><!-- Subscribe 2
+            ==================================================================== -->
+            <!-- /End Subscribe 2 --><!-- Subscribe 2
+            ==================================================================== -->
+            <!-- /End Subscribe 2 --><!-- Header 1
+            ==================================================================== -->
+            <header id="header-section-1" class="header-section header-style-1">
+                <!-- Header Section Container -->
+                <div class="header-section-container">
+
+
+                    <!-- Header Menu -->
+                    <div class="header-menu">
+                        <!-- Header Menu Container -->
+                        <div class="header-menu" style="height: 80px;"><div class="header-menu-container header-menu-stuck">
+
+
+                            <!-- Navbar -->
+                           
+
+
+                        </div></div><!-- /End Header Menu Container -->
+                    </div><!-- /End Header Menu -->
+
+
+                </div><!-- /End Header Section Container -->
+            </header><!-- /End Header 1 --><!-- Single Section 1
+            ==================================================================== -->
+            <div id="single-section-1" class="single-section white-section">
+                <!-- Section Container -->
+                <div class="section-container">
+
+
+                    <!-- container -->
+                    <div class="container">
+                        <!-- row -->
+                        <div class="row">
+
+
+                            <!-- Title Block -->
+                            <div class="col-lg-10 col-lg-offset-1 col-md-12 title-block">
+                                <!-- Title Block Container -->
+                                <div class="title-block-container text-center">
+
+                                    <!-- Title -->
+                                    <h2>@Model.Post.Header</h2>
+
+                                    <!-- Line Separator -->
+                                    <div class="line-separator"></div>
+
+                                </div><!-- /End Title Block Container -->
+                            </div><!-- /End Title Block -->
+
+
+                            <!-- col-md-4 -->
+                            <div class="col-md-4 col-sm-6">
+
+                                <!-- Image Block -->
+                                <div class="image-block">
+                                    <!-- Image Block Container -->
+                                    <div class="image-block-container">
+
+                                        <!-- fancybox -->
+                                        <a href="images/car-rent/car-rent-012.jpg" title="Tovar" class="fancybox" data-fancybox-group="fancybox-car-gallery-1">
+                                            @if (Model.Post.HasImage())
+    {
+        <img src="@Url.Action("GetImage", new { id=Model.Post.ImageId})" />
+    }
+                                        </a>
+
+                                    </div><!-- /End Image Block Container -->
+                                     @if (Model.isOwner)
+    {
+    <div style="margin-left: 700px">
+        @Html.ActionLink("Изменить", "EditPost", new { userId = Model.User.Id, postId = Model.Post.Id });
+    </div>
+    <div style="margin-left: 700px">
+        @Html.ActionLink("Удалить", "DeletePost", new { postId = Model.Post.Id });
+    </div>
+    }
+                                </div><!-- /End Image Block -->
+
+
+                            </div><!-- /End col-md-4 -->
+
+
+
+
+                            <!-- separator -->
+                            <div class="clearfix padding-top-30"></div>
+
+
+                            <!-- Content Block -->
+                            <div class="col-md-12 content-block">
+                                <!-- Content Block Container -->
+                                <div class="content-block-container">
+                                    <h2><div>
+                                        @Html.LabelFor(modelItem => Model.Post.Price);
+                                        @Html.DisplayFor(modelItem => Model.Post.Price);
+                                    </div></h2>
+
+                                    <!-- Description -->
+                                    <p><div>
+                                        @Html.LabelFor(modelItem => Model.Post.Description);
+                                        @Html.DisplayFor(modelItem => Model.Post.Description);
+                                    </div></p>  
+
+                                    <p><div>
+        @Html.LabelFor(modelItem => Model.Post.Date);
+        @Html.DisplayFor(modelItem => Model.Post.Date);
+        <p style="margin-left: 700px ">    
+    <div>
+        @Html.LabelFor(modelItem => Model.User.UserName);
+        @Html.DisplayFor(modelItem => Model.User.UserName);
+    </div> </p>
+    </div></p>
+
+
+                                </div><!-- /End Content Block Container -->
+                            </div><!-- /End Content Block -->
+
+
+                            <!-- Car Block -->
+                            <div class="col-md-12 car-block">
+                                <!-- Car Block Container -->
+                                <div class="car-block-container">
+
+                                    <!-- Description -->
+                                       <h4>Характеристики:</h4>
+     @foreach (var c in Model.Post.CharacteristicList)
+     {
+         <tr style="border-collapse: collapse; border: 2px solid white; /* Прячем рамку вокруг таблицы */"><td>@c</td><td>@c.Description</td></tr>
+     }
+
+                                </div><!-- /End Car Block Container -->
+                            </div><!-- /End Car Block -->
+
+
+                            <!-- Button Block -->
+                            <div class="col-md-12 button-block">
+                                <!-- Button Block Container -->
+                                <div class="button-block-container text-center">
+
+                                    <!-- Buttons -->
+                                    <h3>Понравился товар ?</h3>
+                                    <a style="width: 400px; margin-top: 5px" href="" title="Reserve Now" class="btn btn-lpbuilder wave-effect"><div>
+        @Html.LabelFor(modelItem => Model.User.UserInfo.Number);
+        @Html.DisplayFor(modelItem => Model.User.UserInfo.Number);
+    </div></a>
+
+
+                                    <h4 style="margin-top: 20px" > <div>
+        @Html.ActionLink("Вернуться к списку", "Index")
+    </div></h4>
+
+                                </div><!-- /End Button Block Container -->
+                            </div><!-- /End Button Block -->
+
+
+                        </div><!-- /End row -->
+                    </div><!-- /End container -->
+
+
+                </div><!-- /End Section Container -->
+            </div><!-- /End Single Section 1 --></div><!-- /End Main Wrapper -->
+
+
+
+
+        <!-- Java Script Files
+        ======================================================================== -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="js/vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/plugins/mobile/mobile.min.js"></script>
+        <script type="text/javascript" src="js/scripts.js"></script>
+        
+</body></html>

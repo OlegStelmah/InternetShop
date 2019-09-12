@@ -1,0 +1,43 @@
+﻿@model InternetShop.Models.PostList
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Доска обьявлений";
+}
+
+@using (Html.BeginForm())
+{
+    
+    <label for="Header">Поиск по названию</label>
+    <input type="text" name="Header" value="@Model.Filter.Header"  />
+    <label for="KeyWord">Поиск по ключевым словам</label>
+    <input type="text" name="Year" value="@Model.Filter.KeyWords" />
+    <input type="submit" value="Поиск" />
+    
+
+    
+}
+
+
+<h2>Список обьявлений</h2>
+
+<table class="table">
+    <tr>
+        <th>Обьявления</th>
+    </tr>
+    @foreach (var item in Model.PagedPosts)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Header, "ShowPost", new { id = item.Id })
+                @if (item.HasImage())
+                {
+                    <img src="@Url.Action("GetImage", new { id=@item.ImageId})" />
+                }
+            </td>
+        </tr>
+    }
+
+</table>
+Страница @(Model.PagedPosts.PageCount < Model.PagedPosts.PageNumber ? 0 : Model.PagedPosts.PageNumber) из @Model.PagedPosts.PageCount
+
+@Html.PagedListPager(Model.PagedPosts, page => Url.Action("Index", new { page }))

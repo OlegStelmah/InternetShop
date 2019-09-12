@@ -1,0 +1,18 @@
+﻿
+@model InternetShop.Models.UserInfoModels
+
+<div class="modal-content">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal" area-hidden="true">X</button>
+        <h4>Модель компьютера</h4>
+    </div>
+    <div class="modal-body">
+        <dl class="dl-horizontal">
+            @foreach(var c in Model.AdditionalInfoDict)
+            {
+                <dt>@Html.DisplayName(c.Key)</dt>
+                <dd>@Html.DisplayText(c.Value)</dd>
+            }
+        </dl>
+    </div>
+</div>

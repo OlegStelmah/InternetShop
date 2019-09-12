@@ -1,0 +1,23 @@
+﻿@model InternetShop.Models.KeyWordModels
+
+@{
+    ViewBag.Title = "CreateKeywords";
+}
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div>
+            @Html.LabelFor(model => model.Name)
+            <p>@Html.EditorFor(model => model.Name)</p>
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.Description)
+            <p>@Html.EditorFor(model => model.Description)</p>
+        </div>
+        <div>
+            <p><input type="submit" value="Добавить" /></p>
+        </div>
+    }
+</div>

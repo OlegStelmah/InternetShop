@@ -1,0 +1,54 @@
+﻿@model InternetShop.Models.Container
+@{
+    ViewBag.Title = "ShowPost";
+}
+
+<h2>@Model.Post.Header</h2>
+
+<div class="col-md-6 col-md-offset-3">
+    @if (Model.isOwner)
+    {
+    <div>
+        @Html.ActionLink("Изменить", "EditPost", new { userId = Model.User.Id, postId = Model.Post.Id });
+    </div>
+    <div>
+        @Html.ActionLink("Удалить", "DeletePost", new { postId = Model.Post.Id });
+    </div>
+    }
+    @if (Model.Post.HasImage())
+    {
+        <img src="@Url.Action("GetImage", new { id=Model.Post.ImageId})" />
+    }
+
+    <div>
+        @Html.LabelFor(modelItem => Model.Post.Price);
+        @Html.DisplayFor(modelItem => Model.Post.Price);
+    </div>
+    <div>
+        @Html.LabelFor(modelItem => Model.Post.Description);
+        @Html.DisplayFor(modelItem => Model.Post.Description);
+    </div>
+    <div>
+        @Html.LabelFor(modelItem => Model.Post.Date);
+        @Html.DisplayFor(modelItem => Model.Post.Date);
+    </div>
+    <div>
+        @Html.LabelFor(modelItem => Model.User.UserName);
+        @Html.DisplayFor(modelItem => Model.User.UserName);
+    </div>
+    <div>
+        @Html.LabelFor(modelItem => Model.User.UserInfo.Number);
+        @Html.DisplayFor(modelItem => Model.User.UserInfo.Number);
+    </div>
+
+    <h4>Характеристики:</h4>
+     @foreach (var c in Model.Post.CharacteristicList)
+     {
+         <tr><td>@c</td><td>@c.Description</td></tr>
+     }
+    <div>
+        @Html.ActionLink("Вернуться к списку", "Index")
+    </div>
+     
+     </div>
+

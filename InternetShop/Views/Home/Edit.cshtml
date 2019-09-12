@@ -1,0 +1,99 @@
+﻿@model InternetShop.Models.UserModels
+
+@{
+    ViewBag.Title = "Редактировать пользователя";
+}
+<h2>Редактировать пользователя</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="col-md-4">
+        <div>
+            @Html.LabelFor(model => model.UserName)
+            <div>
+                @Html.EditorFor(model => model.UserName)
+                @Html.ValidationMessageFor(model => model.UserName)
+            </div>
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.Email)
+            <div>
+                @Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.Password)
+            <div>
+                @Html.EditorFor(model => model.Password)
+                @Html.ValidationMessageFor(model => model.Password)
+            </div>
+        </div>
+     </div>
+        <div class="col-md-4 col-md-offset-4">
+            <div>
+                @Html.LabelFor(model => model.UserInfo.Name)
+                <div>
+                    @Html.EditorFor(model => model.UserInfo.Name)
+                    @Html.ValidationMessageFor(model => model.UserInfo.Name)
+                </div>
+            </div>
+            <div>
+                @Html.LabelFor(model => model.UserInfo.Surname)
+                <div>
+                    @Html.EditorFor(model => model.UserInfo.Surname)
+                    @Html.ValidationMessageFor(model => model.UserInfo.Surname)
+                </div>
+            </div>
+            <div>
+                @Html.LabelFor(model => model.UserInfo.Number)
+                <div>
+                    @Html.EditorFor(model => model.UserInfo.Number)
+                    @Html.ValidationMessageFor(model => model.UserInfo.Number)
+                </div>
+            </div>
+            <div>
+                @Html.LabelFor(model => model.UserInfo.City)
+                <div>
+                    @Html.EditorFor(model => model.UserInfo.City)
+                    @Html.ValidationMessageFor(model => model.UserInfo.City)
+                </div>
+            </div>
+                
+            </div>
+
+            <div>
+                <input type="submit" value="Сохранить" />
+            </div>
+        </div>
+}
+<div>
+    @Html.ActionLink("Вернуться к списку", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script type="text/javascript">
+
+        $(function () {
+            $.ajaxSetup({ cache: false });
+           $(".compItem").click(function (e) {
+
+                e.preventDefault();
+                $.get(this.href, function (data) {
+                    $('#dialogContent').html(data);
+                    $('#modDialog').modal('show');
+                });
+            });
+        })
+</script>
+}
